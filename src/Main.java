@@ -1,7 +1,11 @@
+import decorator.impl.MusicSystemDecorator;
+import decorator.impl.SeatCoverDecorator;
+import model.Vehicle;
 import model.VehicleComponent;
 import model.impl.BackDoor;
 import model.impl.SideDoor;
 import model.impl.VehicleDoor;
+import model.impl.VehicleImpl;
 
 public class Main {
     public static void main(String args[]) {
@@ -20,6 +24,13 @@ public class Main {
         allDoors.addDoor(backDoor);
 
         System.out.printf("%s prices: %s", allDoors.getName(), allDoors.getPrice());
+
+        Vehicle bmw = new VehicleImpl("BMW", 50000, "Black color");
+        System.out.printf("Specs for %s are: %s. Price: %s\n",bmw.getName(), bmw.getSpecs(), bmw.getPrice());
+        bmw = new SeatCoverDecorator(bmw);
+        System.out.printf("Seat decorator added. Specs for %s are: %s. Price: %s\n",bmw.getName(), bmw.getSpecs(), bmw.getPrice());
+        bmw = new MusicSystemDecorator(bmw);
+        System.out.printf("Music System decorator added. Specs for %s are: %s. Price: %s\n",bmw.getName(), bmw.getSpecs(), bmw.getPrice());
     }
 
 
