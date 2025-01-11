@@ -3,6 +3,7 @@ import decorator.impl.SeatCoverDecorator;
 import model.Vehicle;
 import model.VehicleComponent;
 import model.impl.BackDoor;
+import model.impl.CarSalesman;
 import model.impl.SideDoor;
 import model.impl.VehicleDoor;
 import model.impl.VehicleImpl;
@@ -31,6 +32,10 @@ public class Main {
         System.out.printf("Seat decorator added. Specs for %s are: %s. Price: %s\n",bmw.getName(), bmw.getSpecs(), bmw.getPrice());
         bmw = new MusicSystemDecorator(bmw);
         System.out.printf("Music System decorator added. Specs for %s are: %s. Price: %s\n",bmw.getName(), bmw.getSpecs(), bmw.getPrice());
+
+        CarSalesman carSalesman = new CarSalesman();
+        carSalesman.getAudiAvailableCars();
+        carSalesman.getBMWAvailableCars();
     }
 
 
